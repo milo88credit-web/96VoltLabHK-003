@@ -210,8 +210,6 @@
         drop-shadow(0 0 15px rgba(226, 181, 74, 0.15));
     }
 
-    /* Gold horizontal glow */
-
     .offer::after {
       content: "";
 
@@ -236,7 +234,7 @@
     }
 
     /* =========================
-       SMALL GOLD SPARKS
+       GOLD SPARKS
     ========================= */
 
     .spark {
@@ -271,7 +269,7 @@
     }
 
     /* =========================
-       DIVIDER
+       GOLD DIVIDER
     ========================= */
 
     .gold-divider {
@@ -359,7 +357,7 @@
     ========================= */
 
     .question {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
 
       color: #f8f5ed;
 
@@ -372,7 +370,7 @@
     }
 
     /* =========================
-       BUTTONS
+       BUTTON GROUP
     ========================= */
 
     .buttons {
@@ -405,6 +403,56 @@
 
     .cta:active {
       transform: scale(0.985);
+    }
+
+    /* =========================
+       PRIMARY CTA WRAPPER
+    ========================= */
+
+    .primary-cta-wrap {
+      position: relative;
+
+      width: 100%;
+    }
+
+    /* =========================
+       SMALL HAND POINTER
+    ========================= */
+
+    .cta-pointer {
+      position: absolute;
+
+      right: 18px;
+      top: -28px;
+
+      z-index: 10;
+
+      font-size: 30px;
+      line-height: 1;
+
+      pointer-events: none;
+
+      filter:
+        drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45))
+        drop-shadow(0 0 7px rgba(230, 183, 77, 0.16));
+
+      animation: pointCTA 1.45s ease-in-out infinite;
+    }
+
+    @keyframes pointCTA {
+
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          rotate(-8deg);
+      }
+
+      50% {
+        transform:
+          translateY(5px)
+          rotate(-8deg);
+      }
     }
 
     /* =========================
@@ -497,7 +545,7 @@
     }
 
     /* =========================
-       SMALL PHONES
+       SMALL PHONE
     ========================= */
 
     @media (max-width: 360px) {
@@ -532,12 +580,21 @@
 
       .cta {
         min-height: 66px;
+
         font-size: 18px;
       }
 
       .whatsapp {
         min-height: 59px;
+
         font-size: 16px;
+      }
+
+      .cta-pointer {
+        right: 14px;
+        top: -25px;
+
+        font-size: 27px;
       }
     }
 
@@ -583,7 +640,25 @@
 
         font-size: 18px;
       }
+
+      .cta-pointer {
+        right: 25px;
+        top: -31px;
+
+        font-size: 33px;
+      }
     }
+
+    /* Reduce motion for users who prefer it */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .cta-pointer {
+        animation: none;
+      }
+
+    }
+
   </style>
 </head>
 
@@ -594,11 +669,14 @@
     <section class="card">
 
       <!-- 新人豪禮 -->
+
       <h1 class="offer-title">
         新人豪禮
       </h1>
 
+
       <!-- 250% -->
+
       <div class="offer">
 
         <span class="spark one"></span>
@@ -611,37 +689,73 @@
 
       </div>
 
+
       <div class="gold-divider"></div>
 
-      <!-- Description -->
+
+      <!-- DESCRIPTION -->
+
       <div class="description">
+
         為新會員而設・開啟你的
         <strong>專屬禮遇</strong>
+
       </div>
 
-      <!-- Divider -->
+
+      <!-- DIVIDER -->
+
       <div class="divider"></div>
 
-      <!-- Question -->
+
+      <!-- QUESTION -->
+
       <div class="question">
         準備好加入了嗎？
       </div>
 
-      <!-- Buttons -->
+
+      <!-- BUTTONS -->
+
       <div class="buttons">
 
-        <!-- MAIN CTA -->
-        <a
-          class="cta primary"
-          href="https://96jqk.com/?ag=kfbads001"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>立即加入</span>
-          <span class="arrow">→</span>
-        </a>
+
+        <!-- PRIMARY CTA -->
+
+        <div class="primary-cta-wrap">
+
+          <!-- Small pointing hand -->
+
+          <div
+            class="cta-pointer"
+            aria-hidden="true"
+          >
+            👇
+          </div>
+
+
+          <a
+            class="cta primary"
+            href="https://96jqk.com/?ag=kfbads001"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <span>
+              立即加入
+            </span>
+
+            <span class="arrow">
+              →
+            </span>
+
+          </a>
+
+        </div>
+
 
         <!-- WHATSAPP -->
+
         <a
           class="cta whatsapp"
           href="https://wa.me/85252176245?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E6%96%B0%E6%9C%83%E5%93%A1%E8%B1%AA%E7%A4%BC%E3%80%82%E3%80%90KFBADS001%E3%80%91"
@@ -650,12 +764,21 @@
         >
 
           <span class="whatsapp-icon">
-            <svg viewBox="0 0 32 32" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+            >
+
               <path d="M16.01 3C8.83 3 3 8.67 3 15.65c0 2.46.73 4.86 2.1 6.91L3 29l6.65-2.06a13.18 13.18 0 0 0 6.36 1.64C23.18 28.58 29 22.92 29 15.65 29 8.67 23.18 3 16.01 3Zm0 23.45c-2.05 0-4.05-.54-5.79-1.57l-.42-.25-3.95 1.22 1.28-3.75-.27-.43a10.45 10.45 0 0 1-1.73-5.77c0-5.81 4.88-10.54 10.88-10.54 6 0 10.88 4.73 10.88 10.54 0 5.82-4.88 10.55-10.88 10.55Zm5.97-7.89c-.33-.16-1.94-.93-2.24-1.04-.3-.11-.52-.16-.74.16-.22.32-.85 1.04-1.04 1.25-.19.22-.38.24-.71.08-.33-.16-1.38-.49-2.63-1.57-.97-.84-1.63-1.88-1.82-2.2-.19-.32-.02-.49.14-.65.15-.14.33-.38.49-.57.16-.19.22-.32.33-.54.11-.22.05-.41-.03-.57-.08-.16-.74-1.73-1.01-2.37-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.88.41-.3.32-1.15 1.09-1.15 2.66 0 1.57 1.18 3.09 1.34 3.3.16.22 2.32 3.44 5.62 4.82.79.33 1.4.53 1.88.68.79.24 1.5.21 2.07.13.63-.09 1.94-.77 2.21-1.52.27-.75.27-1.39.19-1.52-.08-.14-.3-.22-.63-.38Z"/>
+
             </svg>
+
           </span>
 
-          <span>WhatsApp 聯絡我們</span>
+          <span>
+            WhatsApp 聯絡我們
+          </span>
 
         </a>
 
